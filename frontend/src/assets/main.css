@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap');
+
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #2A2A2A;
+  --accent: #F5C518;
+  --accent-hover: #D4A800;
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --danger: #EF4444;
+  --bubble-user: #2A2A2A;
+  --bubble-assistant: #1E1E1E;
+}
+
+body.light {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --bg-tertiary: #EBEBEB;
+  --accent: #E5B80B;
+  --accent-hover: #C49A00;
+  --text-primary: #121212;
+  --text-secondary: rgba(18, 18, 18, 0.7);
+  --text-muted: rgba(18, 18, 18, 0.45);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --danger: #DC2626;
+  --bubble-user: #EBEBEB;
+  --bubble-assistant: #F0F0F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+  transition: background 300ms, color 300ms;
+}
+
+#app {
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 3px;
+}

@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    container_name: film-agent
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: film-agent-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-filmagent123}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-film_agent}
+      MYSQL_USER: ${MYSQL_USER:-filmagent}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-filmagent123}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

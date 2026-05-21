@@ -1,0 +1,24 @@
+.env
+.env.local
+.env.*.local
+.venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+*.swp
+*.swo
+data/
+data/checkpoints.db
+data/chroma/
+
+# Frontend build
+frontend/dist/
+frontend/node_modules/
+
+# Docs (only DEPLOY.md is public)
+docs/
+!docs/DEPLOY.md
+
+# Docker
+docker-compose.override.yml
